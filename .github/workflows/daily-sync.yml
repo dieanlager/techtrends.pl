@@ -1,0 +1,31 @@
+name: Daily TechTrends Data Sync
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Codziennie o 4:00 rano
+  workflow_dispatch: # Pozwala odpalić ręcznie jednym kliknięciem
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Data Pipeline
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx tsx src/scrapers/pipeline.ts
+
+      - name: Trigger Vercel Revalidation
+        run: |
+          curl -X POST "https://techtrends.pl/api/revalidate?secret=${{ secrets.REVALIDATE_SECRET }}"
