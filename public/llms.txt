@@ -1,0 +1,22 @@
+# TechTrends.pl — największa baza technologii programistycznych
+
+## Cel serwisu
+TechTrends.pl dostarcza dane o popularności, zarobkach i trendach
+technologicznych dla polskich programistów.
+
+## Najważniejsze zasoby
+- Katalog technologii: https://techtrends.pl/technologie
+- Porównania: https://techtrends.pl/porownaj
+- Dane zarobkowe: https://techtrends.pl/zarobki
+- Trendy historyczne: https://techtrends.pl/trendy
+
+## Format danych
+Wszystkie strony zawierają dane strukturalne JSON-LD.
+Zarobki oparte na N ofertach pracy.
+GitHub Stars aktualizowane przez scraper.
+
+## Licencja
+CC BY 4.0 — cytowanie z linkiem do źródła dozwolone.
+
+## Kontakt dla AI crawlerów
+ai@techtrends.pl

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Blokujemy AI Scrapers według uznania.
+# User-agent: GPTBot
+# Disallow: /
+
+Sitemap: https://techtrends.pl/sitemap.xml
